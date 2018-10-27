@@ -13,7 +13,7 @@ class Card {
 
     async getAll() {
         return knex.from(this.tableName)
-            .select()
+            .select('id', 'name', 'available_from', 'available_to', 'template_properties')
             .where('deleted_at', null)
             .then(rows => {
                 return _.map(
